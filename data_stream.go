@@ -26,11 +26,14 @@ func NewDataStreamStack(scope constructs.Construct, id string, props *DataStream
 	// 	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(300)),
 	// })
 
-	awslambda.NewFunction(stack, jsii.String("myLambdaFunction"), &awslambda.FunctionProps{
-		Runtime: awslambda.Runtime_PROVIDED_AL2023(),
-		Code:    awslambda.AssetCode_FromAsset(jsii.String("lambda/function.zip"), nil),
-		Handler: jsii.String("main"),
-	})
+	// a construct to add a lambda function
+	awslambda.NewFunction(stack,
+		// the name of the lambda function once deployed
+		jsii.String("myLambdaFunction"), &awslambda.FunctionProps{
+			Runtime: awslambda.Runtime_PROVIDED_AL2023(),
+			Code:    awslambda.AssetCode_FromAsset(jsii.String("lambda/function.zip"), nil),
+			Handler: jsii.String("main"),
+		})
 
 	return stack
 }
