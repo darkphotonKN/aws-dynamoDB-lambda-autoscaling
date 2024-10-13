@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"lambda-func/app"
-
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
@@ -22,8 +20,5 @@ func HandleEvent(event Event) (string, error) {
 }
 
 func main() {
-	app := app.NewApp()
-	// app.ApiHandler.
-
 	lambda.Start(HandleEvent)
 }

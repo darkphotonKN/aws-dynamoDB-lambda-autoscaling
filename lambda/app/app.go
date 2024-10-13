@@ -11,12 +11,10 @@ type App struct {
 
 // initialize DB store and this gets passed down to the ApiHandler
 func NewApp() App {
-
 	db := database.NewDynamoDBClient()
 	apiHandler := api.NewApiHandler(db)
 
 	return App{
 		ApiHandler: apiHandler,
 	}
-
 }
