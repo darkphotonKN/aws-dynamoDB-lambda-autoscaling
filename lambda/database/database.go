@@ -29,10 +29,10 @@ func NewDynamoDBClient() DynamoDBClient {
 
 // querying if user exists
 func (u *DynamoDBClient) DoesUserExist(username string) (bool, error) {
-
 	// use dynamodb lib to create the get object to acquire the item
 	getItemKey := &dynamodb.GetItemInput{
 		TableName: aws.String(TABLE_NAME),
+		// "primary" key using username
 		Key: map[string]*dynamodb.AttributeValue{
 			"username": {
 				S: aws.String(username),
